@@ -1,4 +1,3 @@
-
 fn main() {
     let var = "World";
     let unicode_char = '\u{261D}';
