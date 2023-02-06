@@ -11,7 +11,11 @@ fn main() {
         count += 1;
         println!("count is {count}")
     };
-    println!("loop result is {}", sum(result, 0))
+    println!("loop result is {}", sum(result, 0));
+
+    for (i, n) in numbers_array.iter().enumerate() {
+        println!("item {i} is {n}")
+    }
 }
 
 fn say_hello(name: &str) {
