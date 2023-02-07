@@ -1,7 +1,12 @@
+use std::io;
+
 fn main() {
+    let mut name = String::new();
+    io::stdin().read_line(&mut name);
+
     let numbers_array = [1, 2, 3, 4, 5];
     let tuple = (10, 3.14, "string");
-    say_hello("World");
+    say_hello(&name);
     println!("array {numbers_array:?} of length {}", numbers_array.len());
     println!("first item from tuple is {}", tuple.0);
 
