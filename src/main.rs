@@ -2,10 +2,21 @@ use std::io;
 use rand;
 
 #[derive(Debug)]
+#[derive(Clone)]
 struct SpaceShuttle {
     name: String,
     crew_size: u8,
     propellant: f64
+}
+
+impl SpaceShuttle {
+    fn get_name(&self) -> &str {
+        &self.name
+    }
+
+    fn add_fuel(&mut self, gallons: f64) {
+        self.propellant += gallons;
+    }
 }
 
 fn main() {
