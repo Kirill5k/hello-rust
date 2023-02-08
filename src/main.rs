@@ -1,6 +1,13 @@
 use std::io;
 use rand;
 
+#[derive(Debug)]
+struct SpaceShuttle {
+    name: String,
+    crew_size: u8,
+    propellant: f64
+}
+
 fn main() {
     let mut name = String::new();
     io::stdin().read_line(&mut name);
@@ -22,6 +29,13 @@ fn main() {
     for (i, n) in numbers_array.iter().enumerate() {
         println!("item {i} is {n}")
     }
+
+    let vehicle = SpaceShuttle {
+        name: String::from("Endeavour"),
+        crew_size: 7,
+        propellant: 835958.0
+    };
+    println!("vehicle is {:?}", vehicle)
 }
 
 fn say_hello(name: &str) {
