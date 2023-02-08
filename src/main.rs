@@ -27,6 +27,8 @@ impl SpaceShuttle {
     }
 }
 
+struct Color(u8, u8, u8);
+
 fn main() {
     let mut name = String::new();
     io::stdin().read_line(&mut name);
