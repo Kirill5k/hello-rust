@@ -35,7 +35,12 @@ fn main() {
         crew_size: 7,
         propellant: 835958.0
     };
-    println!("vehicle is {:?}", vehicle)
+
+    let vehicle2 = SpaceShuttle {
+        name: String::from("Discovery"),
+        ..vehicle
+    };
+    println!("vehicle 1 is {:?}\n vehicle 2 is {:?}", vehicle, vehicle2)
 }
 
 fn say_hello(name: &str) {
