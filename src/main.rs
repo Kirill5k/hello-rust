@@ -27,7 +27,20 @@ impl SpaceShuttle {
     }
 }
 
+// tuple struct
 struct Color(u8, u8, u8);
+
+#[derive(Debug)]
+struct Rectangle<T> {
+    width: T,
+    height: T
+}
+
+impl<T> Rectangle<T> {
+    fn get_width(&self) -> &T {
+        &self.width
+    }
+}
 
 fn main() {
     let mut name = String::new();
