@@ -1,3 +1,4 @@
+use std::fmt::Display;
 use std::io;
 use rand;
 
@@ -39,6 +40,16 @@ struct Rectangle<T> {
 impl<T> Rectangle<T> {
     fn get_width(&self) -> &T {
         &self.width
+    }
+}
+
+trait Description {
+    fn describe(&self) -> String;
+}
+
+impl<T: Display> Description for Rectangle<T> {
+    fn describe(&self) -> String {
+        format!("rectangle with width {} and area {}", self.width, self.height)
     }
 }
 
