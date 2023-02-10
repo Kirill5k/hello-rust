@@ -93,3 +93,14 @@ fn say_hello(name: &str) {
 fn sum(x: i32, y: i32) -> i32 {
     x + y
 }
+
+fn compare_and_print<T, U>(a: T, b: U)
+    where T: Display + PartialEq + From<U>,
+          U: Display + PartialEq + Copy {
+    if a == T::from(b) {
+        println!("{a} is equal to {b}")
+    } else {
+        println!("{a} is NOT equal to {b}")
+    }
+}
+
