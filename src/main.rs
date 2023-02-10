@@ -1,4 +1,4 @@
-use std::fmt::Display;
+use std::fmt::{Debug, Display};
 use std::io;
 use rand;
 
@@ -31,7 +31,7 @@ impl SpaceShuttle {
 // tuple struct
 struct Color(u8, u8, u8);
 
-#[derive(Debug, Display)]
+#[derive(Debug)]
 struct Rectangle<T> {
     width: T,
     height: T
@@ -47,7 +47,7 @@ trait Description {
     fn describe(&self) -> String;
 }
 
-impl<T: Display + Display> Description for Rectangle<T> {
+impl<T: Display> Description for Rectangle<T> {
     fn describe(&self) -> String {
         format!("rectangle with width {} and area {}", self.width, self.height)
     }
