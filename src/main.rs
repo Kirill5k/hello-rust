@@ -49,6 +49,15 @@ enum Shape {
     Square(f64, f64)
 }
 
+impl Shape {
+    fn perimeter(&self) -> f64 {
+        match self {
+            Shape::Round(r) => r * 2.0 * std::f64::consts::PI,
+            Shape::Square(w, h) => (2.0 * w) + (2.0 * h)
+        }
+    }
+}
+
 #[derive(Debug)]
 enum Command {
     Clear,
