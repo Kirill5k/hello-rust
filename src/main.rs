@@ -43,6 +43,19 @@ impl<T> Rectangle<T> {
     }
 }
 
+#[derive(Debug)]
+enum Shape {
+    Round(f64),
+    Square(f64, f64)
+}
+
+#[derive(Debug)]
+enum Command {
+    Clear,
+    DrawLine(f64, f64),
+    DrawShape(Shape)
+}
+
 trait Description {
     fn describe(&self) -> String;
 }
