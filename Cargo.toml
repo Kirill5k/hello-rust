@@ -12,4 +12,4 @@ mini-redis = "0.4"
 
 [[bin]]
 name = "hello-rust"
-path = "src/hello_world.rs"
+path = "examples/hello_world.rs"
