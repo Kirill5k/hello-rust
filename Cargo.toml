@@ -6,9 +6,14 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+futures = { version = "0.3.*" }
 tokio = { version = "1", features = ["full"] }
 rand = "0.8.4"
 mini-redis = "0.4"
+log = "0.4.*"
+env_logger = "0.10.*"
+async-log = "2.0.0"
+reqwest = "0.11.14"
 
 [[bin]]
 name = "hello-rust"
