@@ -7,7 +7,7 @@ edition = "2021"
 
 [dependencies]
 futures = { version = "0.3.*" }
-tokio = { version = "1", features = ["full"] }
+tokio = { version = "1.25", features = ["full"] }
 rand = "0.8.4"
 mini-redis = "0.4"
 log = "0.4.*"
@@ -17,4 +17,4 @@ reqwest = "0.11.14"
 
 [[bin]]
 name = "hello-rust"
-path = "examples/hello_world.rs"
+path = "src/main.rs"
