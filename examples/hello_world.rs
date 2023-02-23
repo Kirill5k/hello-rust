@@ -126,3 +126,14 @@ fn compare_and_print<T, U>(a: T, b: U)
     }
 }
 
+fn first_word(s: &str) -> &str {
+    let bytes = s.as_bytes();
+
+    for (i, &item) in bytes.iter().enumerate() {
+        if item == b' ' {
+            return &s[0..i];
+        }
+    }
+
+    &s[..]
+}
