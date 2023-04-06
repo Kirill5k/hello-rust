@@ -6,13 +6,16 @@ use std::{
     time::Duration,
 };
 
+use hello_rust::ThreadPool;
+
 fn main() {
     let listener = TcpListener::bind("127.0.0.1:7878").unwrap();
+    let pool = ThreadPool::new(4);
 
     listener
         .incoming()
         .into_iter()
-        .for_each(|stream| handle_connection(stream.unwrap()))
+        .for_each(|stream| pool.execute(|| handle_connection(stream.unwrap())))
 }
 
 fn handle_connection(mut stream: TcpStream) {
