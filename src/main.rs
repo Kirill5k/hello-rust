@@ -22,11 +22,27 @@ fn handle_connection(mut stream: TcpStream) {
         .take_while(|line| !line.is_empty())
         .collect();
 
+    let request_line = http_request.first().unwrap();
+
+    let response = if request_line == "GET / HTTP/1.1" {
+        default_success_response()
+    } else {
+        not_found_response()
+    };
+
+    stream.write_all(response.as_bytes()).unwrap();
+}
+
+fn default_success_response() -> String {
     let status_line = "HTTP/1.1 200 OK";
     let contents = fs::read_to_string("hello.html").unwrap();
     let content_length = format!("Content-Length: {}", contents.len());
+    format!("{status_line}\r\n{content_length}\r\n\r\n{contents}")
+}
 
-    let response = format!("{status_line}\r\n{content_length}\r\n\r\n{contents}");
-
-    stream.write_all(response.as_bytes()).unwrap();
+fn not_found_response() -> String {
+    let status_line = "HTTP/1.1 404 Not Found";
+    let contents = fs::read_to_string("notfound.html").unwrap();
+    let content_length = format!("Content-Length: {}", contents.len());
+    format!("{status_line}\r\n{content_length}\r\n\r\n{contents}")
 }
