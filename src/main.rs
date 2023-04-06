@@ -1,11 +1,10 @@
 use std::{
     fs,
-    thread,
     io::{prelude::*, BufReader},
     net::{TcpListener, TcpStream},
+    thread,
     time::Duration,
 };
-
 
 fn main() {
     let listener = TcpListener::bind("127.0.0.1:7878").unwrap();
@@ -31,8 +30,8 @@ fn handle_connection(mut stream: TcpStream) {
         "GET /sleep HTTP/1.1" => {
             thread::sleep(Duration::from_secs(5));
             default_success_response()
-        },
-        _ => not_found_response()
+        }
+        _ => not_found_response(),
     };
 
     stream.write_all(response.as_bytes()).unwrap();
