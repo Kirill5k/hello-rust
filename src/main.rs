@@ -15,7 +15,9 @@ fn main() {
     listener
         .incoming()
         .into_iter()
-        .for_each(|stream| pool.execute(|| handle_connection(stream.unwrap())))
+        .for_each(|stream| pool.execute(|| handle_connection(stream.unwrap())));
+
+    println!("Shutting down.");
 }
 
 fn handle_connection(mut stream: TcpStream) {
