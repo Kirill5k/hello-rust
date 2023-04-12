@@ -1,5 +1,14 @@
 use std::ops::Add;
 
+/*
+// Note: Default trait type parameter
+trait Add<Rhs=Self> {
+    type Output;
+
+    fn add(self, rhs: Rhs) -> Self::Output;
+}
+ */
+
 #[derive(Debug, Copy, Clone, PartialEq)]
 struct Point {
     x: i32,
